@@ -1,0 +1,10 @@
+Package: btw
+Type: Package
+Title: Run BayesTraits from R
+Version: 0.1
+Date: 2015-09-15
+Author: Randi Griffin
+Maintainer: Randi Griffin <rgriff23@gmail.com>
+Description: Run BayesTraits from R and process output
+License: MIT
+LazyData: TRUE
