@@ -24,6 +24,6 @@ Before using any of the functions that call BayesTraits, you have to download [B
 locateBayesTraits("YourPath/BayesTraits")
 ```
 
-This creates a hidden variable that `btw` will use to locate BayesTraits whenever you run a BayesTraits function.
+This creates a hidden variable that `btw` will use to locate BayesTraits whenever you run a BayesTraits function. You will have to do this every time you start a new R session. 
 
 
