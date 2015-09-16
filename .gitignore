@@ -1,5 +1,6 @@
 *.Rproj.user
 *.Rhistory
+data/.Rapp.history
 *.html
 *.Rproj
 *.log.txt

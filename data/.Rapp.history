@@ -57,3 +57,47 @@ load("/Users/nunnlab/Desktop/GitHub/btw/data/primates.rda")
 ls()
 exists(.BayesTraitsPath)
 exists(".BayesTraitsPath")
+load("/Users/nunnlab/Desktop/GitHub/btw/data/primates.rda")
+library(ape)
+primate.tree100
+primate.tree100$tip.label
+library(devtools)
+intall_github("rgriff23/btw")
+install_github("rgriff23/btw")
+library(btw)
+.BayesTraitsPath <- "~/Desktop/BTW/Help/BayesTraitsV2 "
+Continuous(primate.tree100, primate.continous1, "Bayesian")
+ls()
+Continuous(primate.tree100, primate.continuous1, "Bayesian")
+tree = primate.tree100
+length(setdiff(tree$tip.label, data[,1]))>0
+tree$tip.label
+data[,1]
+data = primate.continuous1
+data[,1]
+setdiff(tree$tip.label, data[,1])
+tree1 = primate.tree1
+setdiff(tree1$tip.label, data[,1])
+class(primate.continuous[,1])
+class(primate.continuous1[,1])
+class(primate.continuous2[,1])
+class(primate.continuous3[,1])
+class(primate.discrete1[,1])
+class(primate.discrete2[,1])
+as.character(data[,1])
+setdiff(tree, as.character(data[,1]))
+setdiff(tree$tip.label, as.character(data[,1]))
+1
+setdiff(tree1$tip.label, as.character(data[,1]))
+tree1$tip.label
+tree$tip.label
+tree1
+tree1[[1]]
+setdiff(tree1$tip.label, as.character(data[,1]))
+setdiff(tree1$tip.label, as.character(primate.discrete1[,1]))
+length(tree)
+length(tree1)
+class(tree)
+class(tree1)
+tree[[1]]
+tree[[1]]$tip.label
