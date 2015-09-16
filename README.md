@@ -26,4 +26,6 @@ Before using any of the functions that call BayesTraitsV2, you have to download 
 
 You will have to define `.BayesTraitsPath` every time you start a new R session. 
 
+Your tree should be a nexus file and your data should be in a dataframe, where the first column has species names (must match the tree) and subsequent columns contain the data. There should be no missing values in your data (although eventually I'll fix the code to handle NAs).
+
 

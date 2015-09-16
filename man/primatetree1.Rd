@@ -2,7 +2,7 @@
 \name{primatetree1}
 \alias{primatetree1}
 \title{Single primate phylogeny.}
-\format{Text file}
+\format{Nexus}
 \source{
 	10kTrees Version 3.
 }

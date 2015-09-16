@@ -2,7 +2,7 @@
 \name{primatetree100}
 \alias{primatetree100}
 \title{Block of 100 primate phylogenies.}
-\format{Text file}
+\format{Nexus}
 \source{
 	10kTrees Version 3.
 }
