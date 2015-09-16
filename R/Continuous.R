@@ -1,11 +1,7 @@
 Continuous = function (tree, data, mode = "ML", regression = FALSE, directional = FALSE, lambda = 1, kappa = 1, delta = 1, ou = 0, tc = FALSE, mlt = 10, it = 100000, bi = 5000, sa = 100, silent=TRUE) {
 
-# REPLACE SPACES WITH UNDERSCORES IN SPECIES NAMES
-tree$tip.label = gsub(" ", "_", tree$tip.label)
-data[,1] = gsub(" ", "_", data[,1])
-
 # CHECK FOR PROBLEMS IN THE DATA 
-if (class(data[,1]) != "character") {stop("First column of data should be character strings of species names.")}
+if (!(class(data[,1]) %in% c("character", "factor"))) {stop("First column of data should contain species names.")}
 if (length(setdiff(tree$tip.label, data[,1]))>0) {stop(paste("No match found in the data:", paste(setdiff(tree$tip.label, data[,1]), collapse=", ")))}
 if (length(setdiff(data[,1], tree$tip.label))>0) {stop(paste("No match found in the phylogeny:", paste(setdiff(data[,1], tree$tip.label), collapse=", ")))}
 if(length(setdiff(tree$tip.label, data[,1]))>0 | length(setdiff(data[,1], tree$tip.label))>0) {stop("Species in your phylogeny and data must match up exactly.")}
