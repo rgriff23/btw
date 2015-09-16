@@ -16,12 +16,12 @@ if (lambda == "ML") {L = ""} else {L = lambda}
 if (kappa == "ML") {K = ""} else {K = kappa}
 if (delta == "ML") {D = ""} else {D = delta}
 if (ou == "ML") {O = ""} else {O = ou}
-if (ncol(data) == 3 & tc == TRUE) {input = c(input, "tc")}
 input = c(model, mode)
 input = c(input, paste("lambda", L))
 input = c(input, paste("kappa", K))
 input = c(input, paste("delta", D))
 input = c(input, paste("ou", O))	
+if (ncol(data) == 3 & tc == TRUE) {input = c(input, "tc")}
 if (mode == 1) {input = c(input, paste("mlt", as.numeric(mlt)))}
 if (mode == 2) {
 	input = c(input, paste("it", format(it, scientific=F)))
