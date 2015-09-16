@@ -2,11 +2,9 @@
 
 ___
 
-A package for running [BayesTraitsV2](http://www.evolution.rdg.ac.uk/BayesTraits.html) from R. 
+A package for running BayesTraits from R (works on Mac OS only). The functions work by using `System` to run BayesTraits on your system and delete the output files after importing them into R.
 
-The functions work by using `System` to run BayesTraits on your system and delete the output files after importing them into R.
-
-For now, this package only works on Mac OS. 
+BayesTraits was developed by Mark Pagel and Andrew Meade, and is available from their [website](http://www.evolution.rdg.ac.uk/BayesTraits.html) as an executable file that can be run from a command line program such as Terminal. Consult the BayesTraits documentation before using `btw`.
 
 ___
 
@@ -22,7 +20,7 @@ library(btw)
 
 ## Using btw
 
-Before using any of the functions that call BayesTraitsV2, you have to download Version 2 of [BayesTraits](http://www.evolution.rdg.ac.uk/BayesTraits.html) and tell `btw` where to find it on your computer by defining the hidden variable `.BayesTraitsPath`:
+Before using any of the functions that call BayesTraitsV2, you have to download Version 2 of [BayesTraits](http://www.evolution.rdg.ac.uk/BayesTraits.html). The BayesTraitsV2 executable I've been working with is also included in this package. You then have to tell `btw` where to find it on your computer by defining the hidden variable `.BayesTraitsPath`:
 
 ```
 .BayesTraitsPath <- "YourPath/BayesTraits"
