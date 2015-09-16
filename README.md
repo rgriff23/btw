@@ -2,7 +2,7 @@
 
 ___
 
-A package for running BayesTraits from R. 
+A package for running BayesTraitsV2 from R. 
 
 ___
 
@@ -18,12 +18,12 @@ library(btw)
 
 ## Using btw
 
-Before using any of the functions that call BayesTraits, you have to download [BayesTraits](http://www.evolution.rdg.ac.uk/BayesTraits.html) and tell `btw` where to find it on your computer. To do this, use the `locateBayesTraits` function:
+Before using any of the functions that call BayesTraitsV2, you have to download Version 2 of [BayesTraits](http://www.evolution.rdg.ac.uk/BayesTraits.html) and tell `btw` where to find it on your computer by defining the hidden variable `.BayesTraitsPath`:
 
 ```
-locateBayesTraits("YourPath/BayesTraits")
+.BayesTraitsPath <- "YourPath/BayesTraits"
 ```
 
-This creates a hidden variable that `btw` will use to locate BayesTraits whenever you run a BayesTraits function. You will have to do this every time you start a new R session. 
+You will have to define `.BayesTraitsPath` every time you start a new R session. 
 
 

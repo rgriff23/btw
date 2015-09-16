@@ -1,7 +1,7 @@
 \docType{data}
-\name{continuous1}
-\alias{continuous1}
-\title{Random continuous trait data for primates}
+\name{continuous3}
+\alias{continuous3}
+\title{Random set of three continuous traits for primates}
 \format{Text file}
 \source{
 	Random data generated in R
@@ -13,5 +13,5 @@
 \author{
       Randi H. Griffin
 }
-\usage{continuous1}
+\usage{continuous3}
 \keyword{datasets}

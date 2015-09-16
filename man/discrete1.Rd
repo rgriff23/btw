@@ -11,7 +11,7 @@
 	BayesTraits functions.
 }
 \author{
-      Randi Griffin
+      Randi H. Griffin
 }
 \usage{discrete1}
 \keyword{datasets}

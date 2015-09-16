@@ -2,4 +2,5 @@
 *.Rhistory
 *.html
 *.Rproj
+*.log.txt
 .Rproj.user
