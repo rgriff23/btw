@@ -2,9 +2,11 @@
 
 ___
 
-A package for running BayesTraitsV2 from R. 
+A package for running [BayesTraitsV2](http://www.evolution.rdg.ac.uk/BayesTraits.html) from R. 
 
-This package has only been tested on Mac OS.
+The functions work by using `System` to run BayesTraits on your system and delete the output files after importing them into R.
+
+For now, this package only works on Mac OS. 
 
 ___
 

@@ -21,7 +21,7 @@ lr.test(model1, model2)
 	Randi H. Griffin 
 }
 \references{
-	Wilks, S.S. (1938). "The Large-Sample Distribution of the Likelihood Ratio for Testing Composite Hypotheses". The Annals of Mathematical Statistics 9: 60–62. 
+	Wilks, S.S. (1938). "The Large-Sample Distribution of the Likelihood Ratio for Testing Composite Hypotheses". The Annals of Mathematical Statistics 9: 60-62. 
 }
 
 

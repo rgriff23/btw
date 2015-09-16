@@ -1,5 +1,5 @@
 
-Discrete = function(tree, data, mode = "ML", dependent = FALSE, mlt = 10, res = NULL, resall = NULL, mrca = NULL, fo = NULL, it = 100000, bi = 5000, sa = 100, pa = NULL, pr = NULL, hp = NULL, hpall = NULL, rj = NULL, rjhp = NULL, silent=TRUE) {
+Discrete = function(tree, data, mode = "ML", dependent = FALSE, res = NULL, resall = NULL, mrca = NULL, fo = NULL, mlt = 10, it = 100000, bi = 5000, sa = 100, pr = NULL, pa = NULL, hp = NULL, hpall = NULL, rj = NULL, rjhp = NULL, silent=TRUE) {
 
 # CHECK FOR PROBLEMS IN THE DATA
 if (!(class(data[,1]) %in% c("character", "factor"))) {stop("First column of data should contain species names.")}
@@ -38,7 +38,7 @@ if (mode == 2) {
 input = c(input, paste("lf ./BTout.log.txt"))	
 input = c(input, "run")	
 write(input, file="./inputfile.txt") 
-write.nexus(tree, file="./tree.nex", translate=T)	
+ape::write.nexus(tree, file="./tree.nex", translate=T)	
 write.table(data, file="./data.txt", quote=F, col.names=F, row.names=F)
 	
 # RUN ANALYSIS
@@ -57,7 +57,6 @@ system(paste("rm", "./data.txt"))
 
 # RETURN RESULTS
 return(Results)
- 
 }
 
 

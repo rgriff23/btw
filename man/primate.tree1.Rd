@@ -13,7 +13,7 @@
       Randi H. Griffin
 }
 \references{
-	Arnold C, Matthews LJ, Nunn CL. 2010. The 10kTrees Website: a new online resource for primate phylogeny, v3. Evol Anthropol 19: 114–118.
+	Arnold C, Matthews LJ, Nunn CL. 2010. The 10kTrees Website: a new online resource for primate phylogeny, v3. Evol Anthropol 19: 114-118.
 }
 \usage{primate.tree1}
 \keyword{datasets}

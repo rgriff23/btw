@@ -11,8 +11,6 @@ bf.test(model1, model2)
   \item{model1}{output from a Bayesian BayesTraits analysis.}
   \item{model2}{output from a Bayesian BayesTraits analysis.}
 }
-\details{
-}
 \value{
 	Results from Bayes factor test in a dataframe.
 }
