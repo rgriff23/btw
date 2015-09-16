@@ -44,5 +44,7 @@ The documentation does not actually use this data in any examples, because the `
 Continuous(primate.tree1, primate.continuous1, lambda="ML")
 ```
 
+Check out `Examples.md' for more!
+
 ___
 
