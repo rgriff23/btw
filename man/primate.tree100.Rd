@@ -1,6 +1,6 @@
 \docType{data}
-\name{primatetree100}
-\alias{primatetree100}
+\name{primate.tree100}
+\alias{primate.tree100}
 \title{Block of 100 primate phylogenies.}
 \format{Nexus}
 \source{
@@ -15,5 +15,5 @@
 \references{
 	Arnold C, Matthews LJ, Nunn CL. 2010. The 10kTrees Website: a new online resource for primate phylogeny, v3. Evol Anthropol 19: 114–118.
 }
-\usage{primatetree100}
+\usage{primate.tree100}
 \keyword{datasets}

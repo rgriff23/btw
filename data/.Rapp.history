@@ -48,3 +48,12 @@ lambdas.cred
 hist(lambdas)
 library(caper)
 ?pgls.profile
+load("/Users/nunnlab/Desktop/GitHub/btw/data/primates.Rdata")
+ls()
+load("/Users/nunnlab/Desktop/GitHub/btw/data/primates.Rdata")
+ls()
+?read.nexus
+load("/Users/nunnlab/Desktop/GitHub/btw/data/primates.rda")
+ls()
+exists(.BayesTraitsPath)
+exists(".BayesTraitsPath")

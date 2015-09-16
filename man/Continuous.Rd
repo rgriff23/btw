@@ -2,7 +2,7 @@
 \alias{Continuous}
 \title{Run BayesTraits Continuous}
 \usage{
-Continuous = function (tree, data, mode = "ML", regression = FALSE, directional = FALSE, lambda = 1, kappa = 1, delta = 1, ou = 0, tc = FALSE, mlt = 10, silent=TRUE)
+Continuous(tree, data, mode = "ML", regression = FALSE, directional = FALSE, lambda = 1, kappa = 1, delta = 1, ou = 0, tc = FALSE, mlt = 10, it = 100000, bi = 5000, sa = 100, silent=TRUE)
 }
 \description{
 	Runs BayesTraits Continuous models.
@@ -38,8 +38,5 @@ Continuous = function (tree, data, mode = "ML", regression = FALSE, directional 
 
 	Pagel, M. (1999). "Inferring the historical patterns of biological evolution." Nature 401(6756): 877-884. 
 }
-\examples{
-	
-	
-}
+
 

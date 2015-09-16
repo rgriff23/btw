@@ -10,6 +10,7 @@ if (length(setdiff(tree$tip.label, data[,1]))>0) {stop(paste("No match found in 
 if (length(setdiff(data[,1], tree$tip.label))>0) {stop(paste("No match found in the phylogeny:", paste(setdiff(data[,1], tree$tip.label), collapse=", ")))}
 if(length(setdiff(tree$tip.label, data[,1]))>0 | length(setdiff(data[,1], tree$tip.label))>0) {stop("Species in your phylogeny and data must match up exactly.")}
 if (ncol(data) != 3 & tc == TRUE) {stop("tc can only be used for a pair of continuous traits.")}
+if (!exists(".BayesTraitsPath") | !file.exists(.BayesTraitsPath)) {stop("Must define '.BayesTraitsPath' to be the path to BayesTraitsV2 on your computer. For example: .BayesTraitsPath <- User/Desktop/BayesTraitsV2")}
 
 # WRITE INPUT FILE 
 if (mode == "Bayesian") {mode = 2} else {mode = 1}
@@ -53,4 +54,5 @@ system(paste("rm", "./data.txt"))
 
 # RETURN RESULTS
 return(Results)
+
 }

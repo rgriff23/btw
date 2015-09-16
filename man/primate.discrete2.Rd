@@ -1,7 +1,7 @@
 \docType{data}
-\name{continuous2}
-\alias{continuous2}
-\title{Random pair of continuous traits for primates}
+\name{primate.discrete2}
+\alias{primate.discrete2}
+\title{Random pair of discrete traits for primates}
 \format{Text file}
 \source{
 	Random data generated in R
@@ -13,5 +13,5 @@
 \author{
       Randi H. Griffin
 }
-\usage{continuous2}
+\usage{primate.discrete2}
 \keyword{datasets}
