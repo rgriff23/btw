@@ -4,6 +4,8 @@ ___
 
 A package for running BayesTraitsV2 from R. 
 
+This package has only been tested on Mac OS.
+
 ___
 
 ## Installing btw

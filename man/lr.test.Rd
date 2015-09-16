@@ -8,8 +8,8 @@ lr.test(model1, model2)
 	Perform likelihood ratio test for output from a pair of BayesTraits maximum likelihood models. 
 }
 \arguments{
-  \item{model1}{output from a BayesTraits analysis. Can include one or more models, but must have the same number of models as model2.}
-  \item{model2}{output from a BayesTraits analysis. Can include one or more models, but must have the same number of models as model1.}
+  \item{model1}{output from a maximum likelihood BayesTraits analysis. Can include one or more models, but must have the same number of models as model2.}
+  \item{model2}{output from a maximum likelihood BayesTraits analysis. Can include one or more models, but must have the same number of models as model1.}
 }
 \details{
 	If there are multiple models in the BayesTraits output (e.g., models were fit across a sample of phylogenies), then the likelihood ratio test is performed for each pair of models and a separate row of results is generated for each pair.

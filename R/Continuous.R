@@ -26,11 +26,11 @@ input = c(input, paste("lambda", L))
 input = c(input, paste("kappa", K))
 input = c(input, paste("delta", D))
 input = c(input, paste("ou", O))	
-if (mode == "ML") {input = c(input, paste("mlt", as.numeric(mlt)))}
-if (mode == "Bayesian") {
-	input = c(input, paste("it", format(it, sci=F)))
-	input = c(input, paste("bi", format(bi, sci=F)))
-	input = c(input, paste("sa", format(sa, sci=F)))
+if (mode == 1) {input = c(input, paste("mlt", as.numeric(mlt)))}
+if (mode == 2) {
+	input = c(input, paste("it", format(it, scientific=F)))
+	input = c(input, paste("bi", format(bi, scientific=F)))
+	input = c(input, paste("sa", format(sa, scientific=F)))
 }
 input = c(input, paste("lf ./BTout.log.txt"))
 input = c(input, "run")	
