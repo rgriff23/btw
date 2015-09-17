@@ -34,7 +34,7 @@ The package includes some examples of tree and data files that will work with `b
 data(primates)
 ```
 
-Then you can experiment with the primate data and `btw` functions on your own. For example, this code fits a Brownian motion model of evolution for a single continuous trait using maximum likelihood, and also finds the maximum likelihood estimate of the phylogenetic signal parameter, lambda:
+Then you can experiment with the primate data and `btw` functions. For example, this code fits a Brownian motion model of evolution for a single continuous trait using maximum likelihood, and also finds the maximum likelihood estimate of the phylogenetic signal parameter, lambda:
 
 ```
 Continuous(primate.tree1, primate.continuous1, lambda="ML")
