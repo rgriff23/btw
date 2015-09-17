@@ -48,8 +48,8 @@ write.table(data, file="./data.txt", quote=F, col.names=F, row.names=F)
 system(paste(.BayesTraitsPath, "./tree.nex", "./data.txt", "< ./inputfile.txt"), ignore.stdout = silent)
 
 # GET OUTPUT
-FullOut = scan(file = "./BTout.log.txt", what="c", quiet=T, sep="\n")
-Results = read.table("./BTout.log.txt", skip = (grep("Tree No", FullOut) - 1), sep = "\t", header = TRUE)
+Skip = grep("Tree No", scan(file = "./BTout.log.txt", what="c", quiet=T, sep="\n", blank.lines.skip=FALSE)) - 1
+Results = read.table("./BTout.log.txt", skip = Skip, sep = "\t",  quote="\"", header = TRUE)
 Results = Results[,-ncol(Results)]	
 
 # DELETE FILES FROM DISK
