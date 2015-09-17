@@ -1,7 +1,7 @@
 Continuous = function (tree, data, mode = "ML", regression = FALSE, directional = FALSE, lambda = 1, kappa = 1, delta = 1, ou = 0, tc = FALSE, mlt = 10, it = 100000, bi = 5000, sa = 100, silent=TRUE) {
 
 # CHECK FOR PROBLEMS IN THE DATA 
-if (class(tree) == "phylo") {treelabs = tree$tip.label} else if (class(tree) == "multiPhylo") {treelabs = tree[[1]]$tip.label} else {
+if (class(tree) == "phylo") {treelabs = tree$tip.label} else if (class(tree) == "multiPhylo") {treelabs = attributes(tree)$TipLabel} else {
 	stop("Tree must be of class phylo or multiPhylo")
 }
 if (!(class(data[,1]) %in% c("character", "factor"))) {stop("First column of data should contain species names.")}
