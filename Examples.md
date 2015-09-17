@@ -59,7 +59,7 @@ The likelihood ratio test is not significant, indicating that we should favor th
 Another way to get at the question of whether there is evidence for multiple rates of evolution among the 3 character states is to run a reversible jump model, which will sample across models in proportion to their likelihood and return a distribution of model structures. We will also take phylogenetic uncertainty into account by sampling across a block of 100 trees, `primate.tree100`.
 
 ```
-multi.rj <- Discrete(primate.tree1, primate.discrete1, "Bayesian", rj="uniform -100 100", bi=10000, it=1000000, sa=1000)
+multi.rj <- Discrete(primate.tree100, primate.discrete1, "Bayesian", rj="uniform -100 100", bi=10000, it=1000000, sa=1000)
 ```
 
 We can use the function `rj.models` to get a quick summary of the models sampled in the reversible jump analysis.
@@ -96,35 +96,69 @@ Discrete can be used to test for correlated evolution between a pair of binary c
 Let's do the significance test for correlated (i.e., dependent) evolution for the two traits in maximum likelihood mode. 
 
 ```
-uncorrelated <- Discrete(primate.tree1, primate.discrete2)
-correlated <- Discrete(primate.tree1, primate.discrete2, dependent=TRUE)
-lr.test(correlated, uncorrelated)
+nocorrD <- Discrete(primate.tree1, primate.discrete2)
+corrD <- Discrete(primate.tree1, primate.discrete2, dependent=TRUE)
+lr.test(corrD, nocorrD)
 ```
 
 The difference is not significant, indicating that the simpler model (no correlation) should be preferred. The output from these models can be a little confusing, but the `plot.discrete` function allows visualization of the results. 
 
 ```
 layout(matrix(1:2,1,2))
-plot.discrete(uncorrelated, main="Uncorrelated")
-plot.discrete(correlated, main="Correlated")
+plot.discrete(nocorrD, main="Independent")
+plot.discrete(corrD, main="Dependent")
 ```
 
-INSERT PLOT?
+![](./ExamplePlots/plot.discrete.png)
 
-These plots look pretty similar, which is expected since the difference between the models was not significant.
+In this analysis, each *pair* of states for the two traits is treated as a separate state (00, 01, 10, 11). The independent model forces some pairs of rate parameters to be identical, because the idea is that transition rates for each trait should be the same, indepent of what state the other trait is in (this leads to 4 overall parameters). By contrast, the dependent model assumes that transition rates for each trait depend on the state of the other trait, such that different rates need to be estimated (leading to 8 overall parameters). Due to the different constraints imposed on the two models, their transition rate matrices look very different, but as the likelihood ratio test demonstrates, the difference is not significant.
 
 ## Using Continuous 
 
-The `Continuous` function can be used to compare models of evolution for one or more continuous traits. 
+The `Continuous` function can be used to compare models of evolution for one or more continuous traits. The format for the data files is the same as for discrete traits.
 
 ### Phylogenetic signal test
 
+Continuous supports the estimation of several parameters that correspond to different models of evolution. Perhaps the most widely used of these is lambda, the phylogenetic signal parameter developed by Mark Pagel (1999). Let's test the hypothesis that the maximum likelihood estimate of lambda is significantly different from 0 for a single continuous trait. 
+
+```
+lambda0 <- Continuous(primate.tree1, primate.continuous1, lambda=0)
+lambdaML <- Continuous(primate.tree1, primate.continuous1, lambda="ML")
+lr.test(lambdaML, lambda0)
+```
+
+The p-value is not significant, so there is no evidence that lambda is different from 0 (which corresponds to no phylogenetic signal in the data).
+
 ### Correlated evolution test
+
+We can test for a significant correlation between pairs of continuous traits. The `tc` parameter fixes the correlation between two traits to be 0, and this can be used as a null model to test for a significant correlation.
+
+```
+nocorrC <- Continuous(primate.tree1, primate.continuous2, tc=TRUE)
+corrC <- Continuous(primate.tree1, primate.continuous2)
+lr.test(nocorrC, corrC)
+```
+
+The p-value is not significant, so there is no evidence for a correlation between these traits.
 
 ### Regression model
 
+Continuous can also be used to fit regression models with 1 or more predictor variables. The first variable in the dataframe is automatically treated as the response variable. Let's fit a regression model with two predictor variables.
+
+```
+glm1 <- Continuous(primate.tree1, primate.continuous3, regression=TRUE)
+glm1
+```
+
+We can compare the standard errors of regression parameters to their estimated values to assess whether they are significant. In this model, the estimate of Beta.2 is -0.5 with a standard error of 0.73, while the estimate of Beta.3 is 1.24 with a standard error of 0.57. Thus, only Beta.3 is significantly different from 0 (because 0 lies outside the interval 1.24 +/- 0.57).
+
 ## MCMC diagnostics
 
+[Coming soon]
+
+# References
+
+Pagel, M. (1999). "Inferring the historical patterns of biological evolution." Nature 401(6756): 877-884.
 
 ___
 
