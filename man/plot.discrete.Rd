@@ -1,6 +1,6 @@
 \name{plot.discrete}
 \alias{plot.discrete}
-\title{Plot transition rate matrix for Discrete BayesTraits output.}
+\title{Plot Discrete}
 \usage{
 plot.discrete(model)
 }
