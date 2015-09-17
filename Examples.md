@@ -56,11 +56,19 @@ The likelihood ratio test is not significant, indicating that we should favor th
 
 ### Reversible jump hyper-prior model
 
-Another way to get at the question of whether there is evidence for multiple rates of evolution among the 3 character states is to run a reversible jump model, which will sample across models in proportion to their likelihood and return a distribution of model structures. If a symmetric model is the best model, then that structure will appear most frequently in the posterior distribution of models. 
+Another way to get at the question of whether there is evidence for multiple rates of evolution among the 3 character states is to run a reversible jump model, which will sample across models in proportion to their likelihood and return a distribution of model structures. We will also take phylogenetic uncertainty into account by sampling across a block of 100 trees, `primate.tree100`.
 
 ```
-THIS ISN'T WORKING AT THE MOMENT, NOT SURE WHY
+multi.rj <- Discrete(primate.tree1, primate.discrete1, "Bayesian", rj="uniform -100 100", bi=10000, it=1000000, sa=1000)
 ```
+
+We can use the function `rj.models` to get a quick summary of the models sampled in the reversible jump analysis.
+
+```
+rj.models(multi.rj)
+```
+
+Output indicates that an extremely large number of models were sampled in the posterior distribution (nearly 400!) and the top ten models represented an extremely small proportion of the total sample of models (the best model represented about 3.5% of all the models). This indicates that support for any one model over other possible models is weak, and in light of this, the simplest model should be chosen (i.e., all rates equal). 
 
 ### Fossilizing and reconstructing an ancestral state
 
@@ -106,6 +114,8 @@ INSERT PLOT?
 These plots look pretty similar, which is expected since the difference between the models was not significant.
 
 ## Using Continuous 
+
+The `Continuous` function can be used to compare models of evolution for one or more continuous traits. 
 
 ### Phylogenetic signal test
 
