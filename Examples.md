@@ -154,7 +154,7 @@ We can compare the standard errors of regression parameters to their estimated v
 
 ## MCMC diagnostics
 
-A convenient thing about running BayesTraits with `btw` is that the output from Bayesian MCMC analyses are basically ready to be analyzed with the R package `coda` for doing MCMC diagnostics. Here, I provide some examples of how `coda` can be used to do health assessments for MCMC chains. First, let's make some data.
+A convenient thing about running BayesTraits with `btw` is that the output from Bayesian MCMC analyses are basically ready to be analyzed with the R package `coda` for doing MCMC diagnostics. Here, I provide some examples of how `coda` can be used to do health assessments for MCMC chains. First, let's make some data (this won't be pretty... the point is just to see how it works).
 
 ```
 coda.demo <- Discrete(primate.tree100, primate.discrete1, "Bayesian", it=1000000)
@@ -166,9 +166,35 @@ Now load the `coda` package (if it isn't already installed, then install it!).
 library(coda)
 ```
 
+In one easy step, we can prepare the MCMC output for analysis in `coda`. The key is that `coda` functions work on objects of class `mcmc`, so we need to convert columns from our dataframe into `mcmc` objects before using `coda` plotting functions. We can do this by wrapping the variable we want to plot with the `mcmc` function. 
 
+Here is a density plot for the likelihood.
 
-# References
+```
+densplot(mcmc(coda.demo$Lh))
+```
+
+![](./ExamplePlots/Density.png)
+
+Here is a trace plot for the likelihood.
+
+```
+traceplot(mcmc(coda.demo$Lh))
+```
+
+![](./ExamplePlots/Trace.png)
+
+Here is an autocorrelation plot for the likelihood.
+
+```
+autocorr.plot(mcmc(coda.demo$Lh))
+```
+
+![](./ExamplePlots/Autocorrelation.png)
+
+This all just goes to say that `btw` makes it easy for you to use the tools provided by `coda` to do MCMC diagnostics. Check out the `coda` documentation for more info!
+
+## References
 
 Pagel, M. (1999). "Inferring the historical patterns of biological evolution." Nature 401(6756): 877-884.
 
