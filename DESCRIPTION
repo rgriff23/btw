@@ -6,8 +6,6 @@ Date: 2015-09-15
 Author: Randi H. Griffin
 Maintainer: Randi H. Griffin <rgriff23@gmail.com>
 Description: Run BayesTraits from R and process output.
-Imports: 
-	ape,
-	coda
-License: MIT
+Imports: ape
+License: file LICENSE
 LazyData: TRUE
