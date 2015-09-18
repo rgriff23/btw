@@ -1,4 +1,4 @@
-bf.test = function (model1, model2) {
+bftest = function (model1, model2) {
 	Hm1 = tail(model1$Harmonic.Mean, 1)
 	Hm2 = tail(model2$Harmonic.Mean, 1)
 	bf = 2*(Hm1-Hm2)

@@ -1,8 +1,8 @@
-\name{plot.discrete}
-\alias{plot.discrete}
+\name{plotdiscrete}
+\alias{plotdiscrete}
 \title{Plot Discrete}
 \usage{
-plot.discrete(model)
+plotdiscrete(model)
 }
 \description{
 	Plot a transition rate matrix for output from a Discrete BayesTraits analysis of dependent/independent evolution of a pair of discrete characters. 

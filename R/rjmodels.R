@@ -1,4 +1,4 @@
-rj.models = function (model) {
+rjmodels = function (model) {
 	if (!("Model.string" %in% names(model))) {
 		stop("'Model.string' not found: function requires output from a reversible jump BayesTraits analysis.")
 	}

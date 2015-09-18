@@ -1,8 +1,8 @@
-\name{rj.models}
-\alias{rj.models}
+\name{rjmodels}
+\alias{rjmodels}
 \title{Overview of models sampled from reversible jump analysis.}
 \usage{
-rj.models(model)
+rjmodels(model)
 }
 \description{
 	View the total number of models and posterior probability of the top 10 models. 

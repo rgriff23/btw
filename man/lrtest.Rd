@@ -1,8 +1,8 @@
-\name{lr.test}
-\alias{lr.test}
+\name{lrtest}
+\alias{lrtest}
 \title{Likelihood ratio test for BayesTraits models.}
 \usage{
-lr.test(model1, model2)
+lrtest(model1, model2)
 }
 \description{
 	Perform likelihood ratio test for output from a pair of BayesTraits maximum likelihood models. 

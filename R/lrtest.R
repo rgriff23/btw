@@ -1,4 +1,4 @@
-lr.test = function (model1, model2) {
+lrtest = function (model1, model2) {
 	if (nrow(model1) != nrow(model2)) {stop("Objects must contain the same number of models.")}
 	Lhs = c(mean(model1$Lh), mean(model2$Lh))
 	ind = sort(Lhs, index.return=TRUE)$ix

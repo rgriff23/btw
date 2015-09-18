@@ -1,4 +1,4 @@
-plot.discrete = function (model) {
+plotdiscrete = function (model) {
 
 # CREATE TRANSITION RATE MATRIX
 mat = matrix(0, 4, 4, dimnames=list(c("00", "01", "10", "11"), c("00", "01", "10", "11")))

@@ -1,8 +1,8 @@
-\name{bf.test}
-\alias{bf.test}
+\name{bftest}
+\alias{bftest}
 \title{BayesFactor test for BayesTraits models.}
 \usage{
-bf.test(model1, model2)
+bftest(model1, model2)
 }
 \description{
 	Perform Bayes factor test for output from a pair of BayesTraits Bayesian models. 
