@@ -1,2 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+ExamplePlots
+BayesTraitsV2
+Examples.md
