@@ -154,7 +154,19 @@ We can compare the standard errors of regression parameters to their estimated v
 
 ## MCMC diagnostics
 
-[Coming soon]
+A convenient thing about running BayesTraits with `btw` is that the output from Bayesian MCMC analyses are basically ready to be analyzed with the R package `coda` for doing MCMC diagnostics. Here, I provide some examples of how `coda` can be used to do health assessments for MCMC chains. First, let's make some data.
+
+```
+coda.demo <- Discrete(primate.tree100, primate.discrete1, "Bayesian", it=1000000)
+```
+
+Now load the `coda` package (if it isn't already installed, then install it!).
+
+```
+library(coda)
+```
+
+
 
 # References
 

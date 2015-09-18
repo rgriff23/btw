@@ -8,7 +8,7 @@ if (class(tree) == "phylo") {treelabs = tree$tip.label} else if (class(tree) == 
 if (!(class(data[,1]) %in% c("character", "factor"))) {stop("First column of data should contain species names.")}
 if (length(setdiff(treelabs, data[,1]))>0) {stop(paste("No match found in the data:", paste(setdiff(tree$tip.label, data[,1]), collapse=", ")))}
 if (length(setdiff(data[,1], treelabs))>0) {stop(paste("No match found in the phylogeny:", paste(setdiff(data[,1], tree$tip.label), collapse=", ")))}
-if (length(setdiff(treelabs, data[,1]))>0 | length(setdiff(data[,1], tree$tip.label))>0) {stop("Species in your phylogeny and data must match up exactly.")}
+if (length(setdiff(treelabs, data[,1]))>0 | length(setdiff(data[,1], treelabs))>0) {stop("Species in your phylogeny and data must match up exactly.")}
 if (ncol(data) > 3) {stop("Too many columns in data: BayesTraits can only analyze one or two discrete traits.")}
 if (!exists(".BayesTraitsPath") | !file.exists(.BayesTraitsPath)) {stop("Must define '.BayesTraitsPath' to be the path to BayesTraitsV2 on your computer. For example: .BayesTraitsPath <- User/Desktop/BayesTraitsV2")}
 
