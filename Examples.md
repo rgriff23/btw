@@ -32,7 +32,7 @@ Some important formatting points that apply to all functions:
 - Phylogenies must be of class `phylo` or `multiPhylo`
 - The first column of your data file must contain species names
 - Species names must match exactly between the tree and data (but order doesn't matter)
-- You cannot have species in your species names
+- You cannot have spaces in your species names
 - The only valid way to represent missing data is with a "-" character
 - Discrete characters should be represented with characters or factors *(not integers!)* between 0 and 9
 - If testing for correlated evolution in discrete characters, use 0 and 1 as the character states
