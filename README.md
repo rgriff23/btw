@@ -40,7 +40,7 @@ Then you can experiment with the primate data and `btw` functions. For example, 
 Continuous(primate.tree1, primate.continuous1, lambda="ML")
 ```
 
-Check out `Examples.md` for many more examples of fitting, comparing, and visualizing BayesTraits output.
+Check [my website](http://rgriff23.github.io/projects/btw.html) for examples of fitting, comparing, and visualizing BayesTraits output.
 
 ___
 
