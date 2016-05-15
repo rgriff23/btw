@@ -2,8 +2,9 @@
 \alias{Continuous}
 \title{Run BayesTraits Continuous}
 \usage{
-Continuous(tree, data, mode = "ML", regression = FALSE, directional = FALSE, lambda = 1, kappa = 1, delta = 1, 
-ou = 0, tc = FALSE, mlt = 10, it = 100000, bi = 5000, sa = 100, silent=TRUE)
+Continuous(tree, data, mode = "ML", regression = FALSE, directional = FALSE, vr = FALSE, 
+lambda = 1, kappa = 1, delta = 1, ou = 0, tc = FALSE, mrca = NULL, mlt = 10, it = 100000, 
+bi = 5000, sa = 100, silent=TRUE)
 }
 \description{
 	Runs BayesTraits Continuous models.
@@ -14,11 +15,13 @@ ou = 0, tc = FALSE, mlt = 10, it = 100000, bi = 5000, sa = 100, silent=TRUE)
   \item{mode}{takes one of two values, "ML" to run models in maximum likelihood mode or "Bayesian" to run models in Bayesian MCMC mode. Defaults to "ML".}
   \item{regression}{logical indicating whether to fit a regression model. Only valid with multiple traits. Assumes first trait in the dataframe is the response variable. If this is TRUE, the directional parameter is overridden. Defaults to FALSE.}
   \item{directional}{logical indicating whether to fit directional evolution parameter. Defaults to FALSE.}
+  \item{vr}{logical indicating whether to fit the variables rates model. Defaults to FALSE.}
   \item{lambda}{value from 0 to 1 for the lambda parameter, or "ML" to estimate the maximum likelihood value lambda. Defaults to 1.}
   \item{kappa}{value from 0 to 3 for the kappa parameter, or "ML" to estimate the maximum likelihood value kappa. Defaults to 1.}
   \item{delta}{value from 0 to 3 for the delta parameter, or "ML" to estimate the maximum likelihood value delta. Defaults to 1.}
   \item{ou}{value of the Ornstein-Uhlenbeck "rubber band" parameter, reflecting the strength of stabilizing selection, or "ML" to estimate the maximum likelihood value of the parameter. Defaults to 0.}
   \item{tc}{logical indicated whether to force the correlation between traits to be 0 for the purpose of model testing. Ignored if the number of traits is less than or greater than 2. Defaults to FALSE.}
+  \item{mrca}{character vector indicating nodes to reconstruct using the most recent common ancestor approach. Each element of the vector is a character string naming a pair of species whose most recent common ancestor will be reconstructed. For example, mrca = c("Lemur_catta Homo_sapiens") will reconstruct the last common ancestor of Lemur_catta and Homo_sapiens.}
   \item{mlt}{integer specifying the number of runs of the optimization algorithm in ML mode. Ignored if Bayesian mode is selected. Defaults to 10.}
   \item{it}{integer specifying the number of MCMC iterations in Bayesian mode. Default is 100000.}
   \item{bi}{integer specifying the number of iterations to discard as burn-in in Bayesian mode. Default is 5000.}
