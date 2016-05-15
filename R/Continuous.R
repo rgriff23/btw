@@ -51,7 +51,7 @@ Results = read.table(lf, skip = (grep("Tree No", FullOut) - 1), sep = "\t", head
 Results = Results[,-ncol(Results)]	
 if (vr == TRUE) {
 	skip = grep("=", scan(file = "./data.txt.PP.trees", what="c", quiet=T, sep="\n"))[1] - 1
-	Trees = read.tree(file="~/Desktop/GitHub/Evaluating_mvBM/R/data.txt.PP.trees", skip=skip, keep.multi=TRUE)
+	Trees = read.tree(file="./data.txt.PP.trees", skip=skip, keep.multi=TRUE)
 	Results = list(Results, Trees)
 }
 
