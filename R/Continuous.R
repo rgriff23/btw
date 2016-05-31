@@ -60,8 +60,10 @@ system(paste("rm", lf))
 system(paste("rm ./inputfile.txt"))
 system(paste("rm", "./tree.nex"))
 system(paste("rm", "./data.txt"))
-try(system(paste("rm", "./data.txt.PP.trees")))
-try(system(paste("rm", "./data.txt.PP.txt")))
+if (vr == TRUE) {
+	system(paste("rm", "./data.txt.PP.trees"))
+	system(paste("rm", "./data.txt.PP.txt"))
+}
 
 # RETURN RESULTS
 return(Results)
