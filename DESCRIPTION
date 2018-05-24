@@ -1,11 +1,11 @@
 Package: btw
 Type: Package
-Title: Run BayesTraits from R
-Version: 0.1
-Date: 2015-09-15
+Title: Run BayesTraitsV3 from R
+Version: 2.0
+Date: 2018-05-25
 Author: Randi H. Griffin
 Maintainer: Randi H. Griffin <rgriff23@gmail.com>
-Description: Run BayesTraits from R and process output.
+Description: Run BayesTraitsV3 from R and parse output.
 Imports: ape
 License: file LICENSE
 LazyData: TRUE
