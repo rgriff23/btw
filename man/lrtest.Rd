@@ -1,18 +1,18 @@
 \name{lrtest}
 \alias{lrtest}
-\title{Likelihood ratio test for BayesTraits models.}
+\title{Likelihood ratio test for BayesTraitsV3 models.}
 \usage{
 lrtest(model1, model2)
 }
 \description{
-	Perform likelihood ratio test for output from a pair of BayesTraits maximum likelihood models. 
+	Perform likelihood ratio test for a pair of \code{bayestraits} results. 
 }
 \arguments{
-  \item{model1}{output from a maximum likelihood BayesTraits analysis. Can include one or more models, but must have the same number of models as model2.}
-  \item{model2}{output from a maximum likelihood BayesTraits analysis. Can include one or more models, but must have the same number of models as model1.}
+  \item{model1}{output from \code{bayestraits} in Maximum Likelihood mode. Can include one or more models, but must have the same number of models as model2.}
+  \item{model2}{output from \code{bayestraits} in Maximum Likelihood mode. Can include one or more models, but must have the same number of models as model1.}
 }
 \details{
-	If there are multiple models in the BayesTraits output (e.g., models were fit across a sample of phylogenies), then the likelihood ratio test is performed for each pair of models and a separate row of results is generated for each pair.
+	If there are multiple models in the \code{bayestraits} output (e.g., models were fit across a sample of phylogenies), then the likelihood ratio test is performed for each pair of models and a separate row of results is generated for each pair.
 }
 \value{
 	Results from likelihood ratio test(s) in a dataframe.

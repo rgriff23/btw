@@ -1,15 +1,15 @@
 \name{bftest}
 \alias{bftest}
-\title{BayesFactor test for BayesTraits models.}
+\title{BayesFactor test for BayesTraitsV3 models.}
 \usage{
 bftest(model1, model2)
 }
 \description{
-	Perform Bayes factor test for output from a pair of BayesTraits Bayesian models. 
+	Perform Bayes factor test for a pair of \code{bayestraits} results. 
 }
 \arguments{
-  \item{model1}{output from a Bayesian BayesTraits analysis.}
-  \item{model2}{output from a Bayesian BayesTraits analysis.}
+  \item{model1}{output from \code{bayestraits} in MCMC mode}
+  \item{model2}{output from \code{bayestraits} in MCMC mode}
 }
 \value{
 	Results from Bayes factor test in a dataframe.

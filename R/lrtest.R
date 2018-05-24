@@ -1,4 +1,6 @@
 lrtest = function (model1, model2) {
+  model1 <- model1$Log$results
+  model2 <- model2$Log$results
 	if (nrow(model1) != nrow(model2)) {stop("Objects must contain the same number of models.")}
 	Lhs = c(mean(model1$Lh), mean(model2$Lh))
 	ind = sort(Lhs, index.return=TRUE)$ix
