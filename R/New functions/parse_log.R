@@ -5,8 +5,8 @@ parse_log <- function(file) {
 out <- scan(file = file, what="c", quiet=T, sep="\n")
 
 # ML OR MCMC?
-analysis_type <- out[grep("Analysis Type", out)]
-results_start <- ifelse(grepl("MCMC", analysis_type), "Iteration\\s", "Tree No")
+mcmc <- ifelse(length(out[grep("Maximum Likelihood", out)]) == 0, TRUE, FALSE)
+results_start <- ifelse(mcmc, "Iteration\\s", "Tree No")
 results_start <- grep(results_start, out)
 
 # SEPARATE MODEL OPTIONS AND RESULTS
