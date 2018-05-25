@@ -31,7 +31,7 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   
   # WRITE INPUT FILE, TREE, AND DATA
   write(c(commands, "run"), file = "./inputfile.txt")
-  ape::write.nexus(tree, file = paste0(dir, "./tree.nex"), translate = T)
+  ape::write.nexus(tree, file = "./tree.nex", translate = T)
   write.table(data, file = "./data.txt", quote = F, col.names = F, row.names = F)
   
   

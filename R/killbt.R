@@ -10,10 +10,11 @@ killbt <- function() {
   
   # KILL PROCESSES
   if (windows) {
-    system('taskkill /f /im BayesTraits*')
+    system("taskkill /f /im BayesTraits*")
   } else {
-    jobs <- system("pgrep BayesTraits", intern=T)
+    jobs <- suppressWarnings(system("pgrep BayesTraits", intern=TRUE))
     for (n in 1:length(jobs)) {system(paste("kill", jobs[n]))}
+    if (length(jobs) > 0) print(paste("Job(s) killed:", jobs), quote=FALSE) else print ("No jobs found", quote=FALSE)
   }
   
 }
