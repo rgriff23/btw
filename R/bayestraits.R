@@ -38,15 +38,9 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   # RUN BAYESTRAITS
   if (windows) {
     if (silent) {
-      invisible(shell(paste(paste0(dir, "/BayesTraitsV3.exe"), 
-                  paste0(dir, "/tree.nex"), 
-                  paste0(dir, "/data.txt"),
-                  paste0("< ", dir, "/inputfile.txt")), intern=TRUE))
+      invisible(shell("BayesTraitsV3.exe tree.nex data.txt < inputfile.txt", intern = TRUE))
     } else {
-      shell(paste(paste0(dir, "/BayesTraitsV3.exe"), 
-                  paste0(dir, "/tree.nex"), 
-                  paste0(dir, "/data.txt"),
-                  paste0("< ", dir, "/inputfile.txt")))
+      shell("BayesTraitsV3.exe tree.nex data.txt < inputfile.txt")
     }
   
   } else {
@@ -71,11 +65,11 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   
   # CAPTURE AND PARSE OUTPUT
   if (windows) {
-    Log <- parse_log(paste0(gsub("/", "\\\\", dir), "\\data.txt.Log.txt"))
-    if (schedule) Schedule <- parse_schedule(paste0(gsub("/", "\\\\", dir), "\\data.txt.Schedule.txt")) else Schedule <- NULL
-    if (stones) Stones <- parse_stones(paste0(gsub("/", "\\\\", dir), "\\data.txt.Stones.txt")) else Stones <- NULL
-    if (ancstates) AncStates <- parse_ancstates(paste0(gsub("/", "\\\\", dir), "\\data.txt.AncStates.txt")) else AncStates <- NULL
-    if (output.trees) OutputTrees <- ape::read.nexus(paste0(gsub("/", "\\\\", dir), "\\data.txt.Output.trees")) else OutputTrees <- NULL
+    Log <- parse_log("data.txt.Log.txt")
+    if (schedule) Schedule <- parse_schedule("data.txt.Schedule.txt") else Schedule <- NULL
+    if (stones) Stones <- parse_stones("data.txt.Stones.txt") else Stones <- NULL
+    if (ancstates) AncStates <- parse_ancstates("data.txt.AncStates.txt") else AncStates <- NULL
+    if (output.trees) OutputTrees <- ape::read.nexus("data.txt.Output.trees") else OutputTrees <- NULL
   } else {
     Log <- parse_log(paste0(dir, "/data.txt.Log.txt"))
     if (schedule) Schedule <- parse_schedule(paste0(dir, "/data.txt.Schedule.txt")) else Schedule <- NULL
@@ -92,14 +86,14 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   # REMOVE OUTPUT FILES FROM DISK
   if (remove_files) {
     if (windows) {
-      shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.Log.txt"))
-      shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt"))
-      shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\tree.nex"))
-      shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\inputfile.txt"))
-      if (schedule) shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.Schedule.txt"))
-      if (stones) shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.Stones.txt"))
-      if (ancstates) shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.AncStates.txt"))
-      if (output.trees) shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.Output.trees"))
+      shell(paste("DEL", "data.txt.Log.txt"))
+      shell(paste("DEL", "data.txt"))
+      shell(paste("DEL", "tree.nex"))
+      shell(paste("DEL", "inputfile.txt"))
+      if (schedule) shell("DEL", "data.txt.Schedule.txt")
+      if (stones) shell("DEL", "data.txt.Stones.txt")
+      if (ancstates) shell("DEL", "data.txt.AncStates.txt")
+      if (output.trees) shell("DEL", "data.txt.Output.trees")
     } else {
       system(paste0("rm ", dir, "/data.txt.Log.txt"))
       system(paste0("rm ", dir, "/data.txt"))
