@@ -8,13 +8,13 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
     stop("Tree must be of class phylo or multiPhylo")
   }
   if (class(commands) != "character") stop("Character vector containing BayesTraits commands must be supplied.")
-  if (!(class(data[,1]) %in% c("character", "factor"))) stop("First column of data must contain species names.")
-  if (length(setdiff(treelabs, data[,1]))>0) stop(paste("No match found in the data:", paste(setdiff(tree$tip.label, data[,1]), collapse=", ")))
-  if (length(setdiff(data[,1], treelabs))>0) stop(paste("No match found in the phylogeny:", paste(setdiff(data[,1], tree$tip.label), collapse=", ")))
-  if(length(setdiff(treelabs, data[,1]))>0 | length(setdiff(data[,1], treelabs))>0) stop("Species in your phylogeny and data must match up exactly.")
-  
-  
-  # DETECT SYSTEM 
+  if (!(class(data[[1]]) %in% c("character", "factor"))) stop("First column of data must contain species names.")
+  if (length(setdiff(treelabs, data[[1]]))>0) stop(paste("No match found in the data:", paste(setdiff(tree$tip.label, data[[1]]), collapse=", ")))
+  if (length(setdiff(data[[1]], treelabs))>0) stop(paste("No match found in the phylogeny:", paste(setdiff(data[[1]], tree$tip.label), collapse=", ")))
+  if (length(setdiff(treelabs, data[[1]]))>0 | length(setdiff(data[[1]], treelabs))>0) stop("Species in your phylogeny and data must match up exactly.")
+
+
+  # DETECT SYSTEM
   if (.Platform$OS.type == "windows") {
     windows = TRUE
   } else if (Sys.info()["sysname"] == "Darwin") {
