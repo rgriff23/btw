@@ -3,18 +3,18 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   
   
   # WARNINGS (check class of arguments, species names in the data and tree, BayesTraits is in your directory)
-  if (class(data) != "data.frame") stop("Data frame containing species data must be supplied")
-  if (class(tree) == "phylo") {treelabs = tree$tip.label} else if (class(tree) == "multiPhylo") {treelabs = attributes(tree)$TipLabel} else {
+  if (!inherits(data, "data.frame")) stop("Data frame containing species data must be supplied")
+  if (inherits(tree, "phylo")) {treelabs <- tree$tip.label} else if (inherits(tree, "multiPphylo")) {treelabs = attributes(tree)$TipLabel} else {
     stop("Tree must be of class phylo or multiPhylo")
   }
   if (class(commands) != "character") stop("Character vector containing BayesTraits commands must be supplied.")
-  if (!(class(data[,1]) %in% c("character", "factor"))) stop("First column of data must contain species names.")
-  if (length(setdiff(treelabs, data[,1]))>0) stop(paste("No match found in the data:", paste(setdiff(tree$tip.label, data[,1]), collapse=", ")))
-  if (length(setdiff(data[,1], treelabs))>0) stop(paste("No match found in the phylogeny:", paste(setdiff(data[,1], tree$tip.label), collapse=", ")))
-  if(length(setdiff(treelabs, data[,1]))>0 | length(setdiff(data[,1], treelabs))>0) stop("Species in your phylogeny and data must match up exactly.")
-  
-  
-  # DETECT SYSTEM 
+  if (!(class(data[[1]]) %in% c("character", "factor"))) stop("First column of data must contain species names.")
+  if (length(setdiff(treelabs, data[[1]]))>0) stop(paste("No match found in the data:", paste(setdiff(tree$tip.label, data[[1]]), collapse=", ")))
+  if (length(setdiff(data[[1]], treelabs))>0) stop(paste("No match found in the phylogeny:", paste(setdiff(data[[1]], tree$tip.label), collapse=", ")))
+  if (length(setdiff(treelabs, data[[1]]))>0 | length(setdiff(data[[1]], treelabs))>0) stop("Species in your phylogeny and data must match up exactly.")
+
+
+  # DETECT SYSTEM
   if (.Platform$OS.type == "windows") {
     windows = TRUE
   } else if (Sys.info()["sysname"] == "Darwin") {
@@ -38,15 +38,9 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   # RUN BAYESTRAITS
   if (windows) {
     if (silent) {
-      invisible(shell(paste(paste0(dir, "/BayesTraitsV3.exe"), 
-                  paste0(dir, "/tree.nex"), 
-                  paste0(dir, "/data.txt"),
-                  paste0("< ", dir, "/inputfile.txt")), intern=TRUE))
+      invisible(shell("BayesTraitsV3.exe tree.nex data.txt < inputfile.txt", intern = TRUE))
     } else {
-      shell(paste(paste0(dir, "/BayesTraitsV3.exe"), 
-                  paste0(dir, "/tree.nex"), 
-                  paste0(dir, "/data.txt"),
-                  paste0("< ", dir, "/inputfile.txt")))
+      shell("BayesTraitsV3.exe tree.nex data.txt < inputfile.txt")
     }
   
   } else {
@@ -71,11 +65,11 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   
   # CAPTURE AND PARSE OUTPUT
   if (windows) {
-    Log <- parse_log(paste0(gsub("/", "\\\\", dir), "\\data.txt.Log.txt"))
-    if (schedule) Schedule <- parse_schedule(paste0(gsub("/", "\\\\", dir), "\\data.txt.Schedule.txt")) else Schedule <- NULL
-    if (stones) Stones <- parse_stones(paste0(gsub("/", "\\\\", dir), "\\data.txt.Stones.txt")) else Stones <- NULL
-    if (ancstates) AncStates <- parse_ancstates(paste0(gsub("/", "\\\\", dir), "\\data.txt.AncStates.txt")) else AncStates <- NULL
-    if (output.trees) OutputTrees <- ape::read.nexus(paste0(gsub("/", "\\\\", dir), "\\data.txt.Output.trees")) else OutputTrees <- NULL
+    Log <- parse_log("data.txt.Log.txt")
+    if (schedule) Schedule <- parse_schedule("data.txt.Schedule.txt") else Schedule <- NULL
+    if (stones) Stones <- parse_stones("data.txt.Stones.txt") else Stones <- NULL
+    if (ancstates) AncStates <- parse_ancstates("data.txt.AncStates.txt") else AncStates <- NULL
+    if (output.trees) OutputTrees <- ape::read.nexus("data.txt.Output.trees") else OutputTrees <- NULL
   } else {
     Log <- parse_log(paste0(dir, "/data.txt.Log.txt"))
     if (schedule) Schedule <- parse_schedule(paste0(dir, "/data.txt.Schedule.txt")) else Schedule <- NULL
@@ -92,14 +86,14 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   # REMOVE OUTPUT FILES FROM DISK
   if (remove_files) {
     if (windows) {
-      shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.Log.txt"))
-      shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt"))
-      shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\tree.nex"))
-      shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\inputfile.txt"))
-      if (schedule) shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.Schedule.txt"))
-      if (stones) shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.Stones.txt"))
-      if (ancstates) shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.AncStates.txt"))
-      if (output.trees) shell(paste0("DEL ", gsub("/", "\\\\", dir), "\\data.txt.Output.trees"))
+      shell(paste("DEL", "data.txt.Log.txt"))
+      shell(paste("DEL", "data.txt"))
+      shell(paste("DEL", "tree.nex"))
+      shell(paste("DEL", "inputfile.txt"))
+      if (schedule) shell(paste("DEL", "data.txt.Schedule.txt"))
+      if (stones) shell(paste("DEL", "data.txt.Stones.txt"))
+      if (ancstates) shell(paste("DEL", "data.txt.AncStates.txt"))
+      if (output.trees) shell(paste("DEL", "data.txt.Output.trees"))
     } else {
       system(paste0("rm ", dir, "/data.txt.Log.txt"))
       system(paste0("rm ", dir, "/data.txt"))
