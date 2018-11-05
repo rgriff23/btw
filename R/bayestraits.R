@@ -4,7 +4,7 @@ bayestraits <- function (data=NULL, tree=NULL, commands=NULL, silent=TRUE, remov
   
   # WARNINGS (check class of arguments, species names in the data and tree, BayesTraits is in your directory)
   if (!inherits(data, "data.frame")) stop("Data frame containing species data must be supplied")
-  if (inherits(tree, "phylo")) {treelabs <- tree$tip.label} else if (inherits(tree, "multiPphylo")) {treelabs = attributes(tree)$TipLabel} else {
+  if (inherits(tree, "phylo")) {treelabs <- tree$tip.label} else if (inherits(tree, "multiPhylo")) {treelabs = attributes(tree)$TipLabel} else {
     stop("Tree must be of class phylo or multiPhylo")
   }
   if (class(commands) != "character") stop("Character vector containing BayesTraits commands must be supplied.")
